@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Arabic text rendering */
+  .arabic {
+    font-family: var(--font-amiri), "Amiri", "Traditional Arabic", serif;
+    direction: rtl;
+    text-align: right;
+    line-height: 2.6;
+    letter-spacing: 0.02em;
+    font-feature-settings: "liga" 1, "calt" 1, "kern" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Subtle focus ring */
+  :focus-visible {
+    outline: 2px solid #2D6A4F;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f5f5f4; }
+  ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .divider {
+    @apply border-t border-stone-200 my-8;
+  }
+
+  .card {
+    @apply bg-white border border-stone-200 rounded-xl p-6;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-sage-700/30 hover:shadow-sm;
+  }
+
+  .badge {
+    @apply inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-green {
+    @apply badge bg-sage-50 text-sage-700 border border-sage-100;
+  }
+}
